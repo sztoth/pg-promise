@@ -30,11 +30,11 @@ module.exports.query = function(sqlQuery, queryParams) {
         }
 
         if(params.length < 1) {
-            client.query(sql, function(error, result) {
+            client.query(sqlQuery, function(error, result) {
                 normalQueryHandler(error, result, deferred, done);
             });
         } else {
-            client.query(sql, p, function(error, result) {
+            client.query(sqlQuery, params, function(error, result) {
                 normalQueryHandler(error, result, deferred, done);
             });
         }
