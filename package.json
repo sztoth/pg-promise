@@ -11,8 +11,7 @@
   },
   "dependencies": {
     "q": "~1.0.1",
-    "pg": "3.3.0",
-    "pg-transaction": "~1.0.3"
+    "pg": "3.3.0"
   },
   "keywords": [
     "postgres",
