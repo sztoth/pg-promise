@@ -1,0 +1,21 @@
+{
+  "name": "pg-promise",
+  "version": "0.0.1",
+  "description": "Promise based postgres query.",
+  "main": "index.js",
+  "private": true,
+  "author": "Szabolcs Tóth",
+  "repository":
+  { "type": "git",
+    "url": "https://github.com/sztoth/pg-promise"
+  },
+  "dependencies": {
+    "q": "~1.0.1",
+    "pg": "3.3.0",
+    "pg-transaction": "~1.0.3"
+  },
+  "keywords": [
+    "postgres",
+    "promise"
+  ]
+}
