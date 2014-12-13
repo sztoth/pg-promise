@@ -1,6 +1,6 @@
 {
   "name": "pg-promise",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Promise based postgres query.",
   "main": "index.js",
   "private": true,
@@ -10,8 +10,8 @@
     "url": "https://github.com/sztoth/pg-promise"
   },
   "dependencies": {
-    "q": "~1.0.1",
-    "pg": "3.3.0"
+    "q": "~1.1.2",
+    "pg": "4.1.0"
   },
   "keywords": [
     "postgres",
