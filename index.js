@@ -11,6 +11,31 @@ module.exports.connect = function(queryCallback) {
     });
 }
 
+module.exports.queryWithClient = function(client, sqlQuery, queryParams) {
+    var deferred = q.defer();
+
+    if (sqlQuery == null) {
+        var paramError = new Error('sqlQuery is null');
+
+        errorHandler('Pg-promise query error:', paramError, deferred);
+        return;
+    }
+
+    var params = queryParams || [];
+
+    if(params.length < 1) {
+        client.query(sqlQuery, function(error, result) {
+            normalQueryHandler(error, result, deferred, null);
+        });
+    } else {
+        client.query(sqlQuery, params, function(error, result) {
+            normalQueryHandler(error, result, deferred, null);
+        });
+    }
+
+    return deferred.promise;
+}
+
 module.exports.query = function(sqlQuery, queryParams) {
     var deferred = q.defer();
 
@@ -44,7 +69,9 @@ module.exports.query = function(sqlQuery, queryParams) {
 }
 
 function normalQueryHandler (error, result, deferred, done) {
-    done();
+    if(done) {
+        done();
+    }
 
     if (error) {
         errorHandler('Pg-promise query error:', error, deferred);
